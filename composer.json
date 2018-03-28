@@ -1,8 +1,7 @@
 {
-    "name": "flarum/flarum",
-    "description": "Delightfully simple forum software.",
+    "name": "upstat/flarum",
+    "description": "A fork of flarum/flarum for upst.at.",
     "type": "project",
-    "keywords": ["forum", "discussion"],
     "homepage": "http://flarum.org",
     "license": "MIT",
     "authors": [
@@ -15,37 +14,16 @@
             "email": "franz@develophp.org"
         }
     ],
-    "support": {
-        "issues": "https://github.com/flarum/core/issues",
-        "source": "https://github.com/flarum/flarum",
-        "docs": "http://flarum.org/docs"
-    },
     "require": {
-        "flarum/core": "^0.1.0",
-        "flarum/flarum-ext-akismet": "^0.1.0",
-        "flarum/flarum-ext-approval": "^0.1.0",
-        "flarum/flarum-ext-auth-facebook": "^0.1.0",
-        "flarum/flarum-ext-auth-github": "^0.1.0",
-        "flarum/flarum-ext-auth-twitter": "^0.1.0",
-        "flarum/flarum-ext-bbcode": "^0.1.0",
-        "flarum/flarum-ext-emoji": "^0.1.0",
-        "flarum/flarum-ext-english": "^0.1.0",
-        "flarum/flarum-ext-flags": "^0.1.0",
-        "flarum/flarum-ext-likes": "^0.1.0",
-        "flarum/flarum-ext-lock": "^0.1.0",
-        "flarum/flarum-ext-markdown": "^0.1.0",
-        "flarum/flarum-ext-mentions": "^0.1.0",
-        "flarum/flarum-ext-pusher": "^0.1.0",
-        "flarum/flarum-ext-statistics": "^0.1.0",
-        "flarum/flarum-ext-sticky": "^0.1.0",
-        "flarum/flarum-ext-subscriptions": "^0.1.0",
-        "flarum/flarum-ext-suspend": "^0.1.0",
-        "flarum/flarum-ext-tags": "^0.1.0",
-        "http-interop/http-middleware": "^0.4.0"
+        "flarum/core": "dev-master as 0.1",
+        "flarum/flarum-ext-english": "dev-master"
     },
-    "config": {
-        "preferred-install": "dist"
-    },
-    "minimum-stability": "beta",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "repositories": {
+        "core": {
+            "type": "vcs",
+            "url": "git@github.com:upstat/core.git"
+        }
+    }
 }
