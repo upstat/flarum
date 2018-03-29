@@ -6,4 +6,4 @@ config.php
 composer.lock
 server
 core
-
+vendor/
