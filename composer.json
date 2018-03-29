@@ -21,9 +21,13 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "repositories": {
+        "workbench": {
+            "type": "path",
+            "url": "./core"
+        },
         "core": {
             "type": "vcs",
-            "url": "git@github.com:upstat/core.git"
+            "url": "https://github.com/upstat/core.git"
         }
     }
 }

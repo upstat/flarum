@@ -3,6 +3,7 @@ Thumbs.db
 .vagrant
 config.php
 .idea
+composer.lock
 server
 core
 
