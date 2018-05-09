@@ -45,6 +45,8 @@ jobs:
       - attach_workspace:
           at: .
       - run: echo ".git" >> .dockerignore
+      - run: echo "$SERVICE_ACCOUNT_KEY" > keyfile.json
+      - run: docker login -u _json_key --password-stdin https://eu.gcr.io < keyfile.json
       - run: docker build . -f Dockerfile -t $DOCKER_REGISTRY/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH
       - run: docker push $DOCKER_REGISTRY/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH
 
