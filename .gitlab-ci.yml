@@ -5,7 +5,7 @@ image: phpdocker/phpdocker:7.1
 #
 .cache_pull: &use_composer_cache
     dependencies:
-        - composer
+        - prepare for production
 .cache_push: &create_composer_cache
     artifacts:
         expire_in: 1 hour
