@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/luceos/flarum-k8s-docker:7.1
+FROM registry.gitlab.com/upstat/flarum-docker:7.1
 
 COPY . /var/www/html
 
