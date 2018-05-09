@@ -1,0 +1,49 @@
+image: phpdocker/phpdocker:7.1
+
+#
+#   Caching strategy
+#
+.cache_pull: &use_composer_cache
+    dependencies:
+        - composer
+.cache_push: &create_composer_cache
+    artifacts:
+        expire_in: 1 hour
+        paths:
+            - vendor/
+    cache:
+        key: "${CI_COMMIT_REF_NAME}"
+        paths:
+            - vendor
+
+#
+#   Base template
+#
+
+#
+#   Stage definition
+#
+stages:
+    - Compile for Deployment
+    - Make Docker Image
+
+#
+#   Jobs
+#
+prepare for production:
+    <<: *create_composer_cache
+    stage: Compile for Deployment
+    script:
+        - composer install --no-dev --prefer-dist --no-interaction --no-progress -o
+
+build for production:
+    <<: *use_composer_cache
+    image: docker:git
+    services:
+        - docker:dind
+    stage: Make Docker Image
+    script:
+        - echo ".git" > .dockerignore
+        - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+        - docker build . -f Dockerfile -t ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}
+        - docker push ${CI_REGISTRY_IMAGE}
