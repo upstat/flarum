@@ -37,6 +37,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: docker:git
+      - image: docker:dind
 
     working_directory: ~/repo
 
